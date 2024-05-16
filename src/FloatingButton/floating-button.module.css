@@ -1,6 +1,13 @@
 .floatingButton {
+  --size: 46px;
+
   background-color: var(--background-color);
   border-radius: 50%;
   box-shadow: 1px 1px #626262;
   pointer-events: all;
+  min-height: var(--size);
+  min-width: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

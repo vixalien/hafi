@@ -8,6 +8,9 @@ dependencies:
   '@babel/plugin-syntax-import-assertions':
     specifier: ^7.24.1
     version: 7.24.1(@babel/core@7.24.5)
+  '@reacticons/ionicons':
+    specifier: ^7.1.0
+    version: 7.1.0
   '@vis.gl/react-google-maps':
     specifier: ^1.0.0
     version: 1.0.0(react-dom@18.3.1)(react@18.3.1)
@@ -576,6 +579,10 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
     dev: true
+
+  /@reacticons/ionicons@7.1.0:
+    resolution: {integrity: sha512-hun4aeMnEyQ2qwmCB8TwNoseHLS1uj3EYuxJhEWkKaxBnyFtQ8HPqqS+HmNYiVBZu6/IeIFESScccdFcb34iqQ==}
+    dev: false
 
   /@rollup/rollup-android-arm-eabi@4.17.2:
     resolution: {integrity: sha512-NM0jFxY8bB8QLkoKxIQeObCaDlJKewVlIEkuyYKm5An1tdVZ966w2+MPQ2l8LBZLjR+SgyV+nRkTIunzOYBMLQ==}

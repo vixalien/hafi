@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@babel/plugin-syntax-import-assertions": "^7.24.1",
+    "@reacticons/ionicons": "^7.1.0",
     "@vis.gl/react-google-maps": "^1.0.0",
     "classnames": "^2.5.1",
     "react": "^18.2.0",

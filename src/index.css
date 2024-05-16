@@ -1,5 +1,5 @@
 :root {
-  --background: linear-gradient(to right, #61ded6, #77dc64);
+  --background: linear-gradient(to right, #2193ae, #87cf6d);
   --background-color: #fff;
   --padding: 12px;
 }
@@ -14,4 +14,11 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
+}
+
+.icon {
+  --size: 30px;
+
+  width: var(--size) !important;
+  height: var(--size) !important;
 }
