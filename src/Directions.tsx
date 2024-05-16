@@ -3,10 +3,6 @@ import { useEffect, useState } from "react";
 
 import env from "./env.json" assert { type: "json" };
 
-function coordsToLatLng(coords: number[]) {
-  return { lat: coords[0], lng: coords[1] };
-}
-
 export function Directions() {
   const map = useMap();
   const routesLibrary = useMapsLibrary("routes");
@@ -65,12 +61,13 @@ export function Directions() {
 
   return (
     <div className="directions">
-      <h2>{selected.summary}</h2>
-      <p>
-        {leg.start_address.split(",")[0]} to {leg.end_address.split(",")[0]}
-      </p>
+      <h2>
+        {prettyAddress(selected.legs[0].start_address)} -{" "}
+        {prettyAddress(selected.legs[selected.legs.length - 1].end_address)}
+      </h2>
+      <p>Next stop: {prettyAddress(leg.end_address)}</p>
       <p>Distance: {leg.distance?.text}</p>
-      <p>Duration: {leg.duration?.text}</p>
+      <p>Time: {leg.duration?.text}</p>
 
       <h2>Other Routes</h2>
       <ul>
@@ -86,4 +83,22 @@ export function Directions() {
       </ul>
     </div>
   );
+}
+
+/**
+ * Converts from an array of [latitude, longitude] to an object with the `lat`
+ * and `lng` coordinates
+ */
+function coordsToLatLng(coords: number[]) {
+  return { lat: coords[0], lng: coords[1] };
+}
+
+/**
+ * Returns an address pretty printed by returning only the name of the
+ * location
+ *
+ * @example "Nyabugogo Taxi Park, KK2323 St., Kigali Rwanda" to "Nyabugogo Taxi Park"
+ */
+function prettyAddress(address: string) {
+  return address.split(",")[0];
 }
