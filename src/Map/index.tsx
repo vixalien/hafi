@@ -16,6 +16,7 @@ export function HafiMap() {
         streetViewControl={false}
         zoomControl={false}
         fullscreenControl={false}
+        mapTypeControl={false}
         className={styles.map}
       >
         <Directions />

@@ -1,5 +1,7 @@
 import { useDirection } from "./hook";
 
+import styles from "./directions.module.css";
+
 export function Directions() {
   const direction = useDirection();
 
@@ -8,13 +10,15 @@ export function Directions() {
   const { start_address, end_address, next_stop } = direction;
 
   return (
-    <div className="directions">
+    <div className={styles.directionsBox}>
       <h2>
         {prettyAddress(start_address)} - {prettyAddress(end_address)}
       </h2>
       <p>Next stop: {prettyAddress(next_stop.address)}</p>
-      <p>Distance: {next_stop.distance}</p>
-      <p>Time: {next_stop.time}</p>
+      <div className={styles.inline}>
+        <p>Distance: {next_stop.distance}</p>
+        <p>Time: {next_stop.time}</p>
+      </div>
     </div>
   );
 }

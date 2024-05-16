@@ -1,0 +1,16 @@
+.directionsBox {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  padding: 20px var(--padding);
+  gap: 6px;
+}
+
+.directionsBox *:is(p, h2) {
+  margin: 0;
+}
+
+.inline {
+  display: flex;
+  justify-content: space-between;
+}

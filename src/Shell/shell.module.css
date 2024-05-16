@@ -1,0 +1,31 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-image: var(--background);
+}
+
+.bar {
+  height: 60px;
+}
+
+.main {
+  flex: 1;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0 var(--padding);
+}
+
+ul.navigation {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul.navigation li {
+  display: block;
+}
