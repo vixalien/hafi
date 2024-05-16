@@ -1,6 +1,12 @@
 import { useMap, useMapsLibrary } from "@vis.gl/react-google-maps";
 import { useEffect, useState } from "react";
 
+import env from "./env.json" assert { type: "json" };
+
+function coordsToLatLng(coords: number[]) {
+  return { lat: coords[0], lng: coords[1] };
+}
+
 export function Directions() {
   const map = useMap();
   const routesLibrary = useMapsLibrary("routes");
@@ -27,19 +33,27 @@ export function Directions() {
   useEffect(() => {
     if (!directionsService || !directionsRenderer) return;
 
+    console.log("here");
+
     directionsService
       .route({
-        origin: "Kimironko",
-        destination: "Nyabugogo",
+        origin: coordsToLatLng(env.navigation.start),
+        destination: coordsToLatLng(env.navigation.end),
         travelMode: google.maps.TravelMode.DRIVING,
         // TODO: set to false
         provideRouteAlternatives: true,
+        waypoints: env.navigation.stops.map((stop) => {
+          return {
+            location: coordsToLatLng(stop),
+            stopover: true,
+          };
+        }),
       })
       .then((response) => {
         directionsRenderer.setDirections(response);
         setRoutes(response.routes);
       });
-  });
+  }, [directionsService, directionsRenderer]);
 
   // Update direction route
   useEffect(() => {
