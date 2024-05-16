@@ -13,9 +13,8 @@ export function Directions() {
     google.maps.DirectionsRenderer
   >();
   const [routes, setRoutes] = useState<google.maps.DirectionsRoute[]>([]);
-  const [routeIndex, setRouteIndex] = useState(0);
-  const selected = routes[routeIndex];
-  const leg = selected?.legs[0];
+  const route = routes[0];
+  const leg = route?.legs[0];
 
   // Initialize directions service and renderer
   useEffect(() => {
@@ -51,36 +50,17 @@ export function Directions() {
       });
   }, [directionsService, directionsRenderer]);
 
-  // Update direction route
-  useEffect(() => {
-    if (!directionsRenderer) return;
-    directionsRenderer.setRouteIndex(routeIndex);
-  }, [routeIndex, directionsRenderer]);
-
   if (!leg) return null;
 
   return (
     <div className="directions">
       <h2>
-        {prettyAddress(selected.legs[0].start_address)} -{" "}
-        {prettyAddress(selected.legs[selected.legs.length - 1].end_address)}
+        {prettyAddress(route.legs[0].start_address)} -{" "}
+        {prettyAddress(route.legs[route.legs.length - 1].end_address)}
       </h2>
       <p>Next stop: {prettyAddress(leg.end_address)}</p>
       <p>Distance: {leg.distance?.text}</p>
       <p>Time: {leg.duration?.text}</p>
-
-      <h2>Other Routes</h2>
-      <ul>
-        {routes.map((route, index) => {
-          return (
-            <li key={route.summary}>
-              <button onClick={() => setRouteIndex(index)}>
-                {route.summary}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
     </div>
   );
 }
