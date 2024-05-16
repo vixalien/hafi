@@ -1,7 +1,7 @@
 import { useMap, useMapsLibrary } from "@vis.gl/react-google-maps";
 import { useEffect, useState } from "react";
 
-import env from "./env.json" assert { type: "json" };
+import env from "../env.json" assert { type: "json" };
 
 export function Directions() {
   const map = useMap();
