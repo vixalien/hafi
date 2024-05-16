@@ -8,7 +8,7 @@ export function Shell({ children }: ShellProps) {
       <header className={styles.bar}>
         <nav className={styles.navigation}>
           <div>menu</div>
-          <button>Startup</button>
+          <button className={styles.startupButton}>Startup</button>
         </nav>
       </header>
       <main className={styles.main}>
