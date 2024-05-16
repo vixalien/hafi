@@ -1,0 +1,16 @@
+.row {
+  position: absolute;
+  top: var(--padding);
+  bottom: var(--padding);
+  right: var(--padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

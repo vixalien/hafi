@@ -1,5 +1,10 @@
-.map {
+.mapBox {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   height: 100%;
+}
+
+.map {
+  flex: 1;
+  position: relative;
 }

@@ -1,0 +1,6 @@
+.floatingButton {
+  background-color: var(--background-color);
+  border-radius: 50%;
+  box-shadow: 1px 1px #626262;
+  pointer-events: all;
+}
